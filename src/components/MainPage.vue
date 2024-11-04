@@ -49,7 +49,7 @@
           v-model="value2val"
           id="value2"
           disabled
-          class="border-1 py-1"
+          class="border-1 py-1 surface-200"
         ></InputNumber>
       </div>
     </div>
@@ -97,6 +97,7 @@ export default {
   },
   methods: {
     // TODO: users can choose if they want 1 or many comparison
+
     calculate() {
       this.animate = true;
       setTimeout(() => {
