@@ -1,4 +1,7 @@
 <template>
+  <div>
+    <p class="title text-5xl font-bold">Mana Lagi Berbaloi?</p>
+  </div>
   <div class="flex flex-row justify-content-around product-container gap-5">
     <div class="product1Container flex flex-column align-items-start product">
       <div class="flex w-full justify-content-center">
@@ -159,6 +162,11 @@ export default {
 </script>
 
 <style scoped>
+.title {
+  text-align: center;
+  color: brown;
+}
+
 .product-container {
   padding: 20px;
   border-width: 20px;
