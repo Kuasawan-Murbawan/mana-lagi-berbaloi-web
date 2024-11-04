@@ -1,7 +1,9 @@
 <template>
   <div class="flex flex-row justify-content-around product-container gap-5">
-    <div class="product1Container flex flex-column align-items-center product">
-      <h2 class="product-title">Product 1</h2>
+    <div class="product1Container flex flex-column align-items-start product">
+      <div class="flex w-full justify-content-center">
+        <h2 class="product-title">Product 1</h2>
+      </div>
       <div class="p-field">
         <label for="quantity1">Quantity</label>
         <InputNumber
@@ -24,13 +26,16 @@
           v-model="value1val"
           id="value1"
           disabled
-          class="border-1 py-1"
+          class="border-1 pl-2 border-round-sm py-1"
+          fluid
         ></InputNumber>
       </div>
     </div>
 
-    <div class="product2Container flex flex-column align-items-center product">
-      <h2 class="product-title">Product 2</h2>
+    <div class="product2Container flex flex-column align-items-start product">
+      <div class="flex w-full justify-content-center">
+        <h2 class="product-title">Product 2</h2>
+      </div>
       <div class="p-field">
         <label for="quantity2">Quantity</label>
         <InputNumber id="quantity2" v-model="quantity2val" fluid />
@@ -49,7 +54,8 @@
           v-model="value2val"
           id="value2"
           disabled
-          class="border-1 py-1 surface-200"
+          fluid
+          class="border-1 border-round-sm pl-2 py-1"
         ></InputNumber>
       </div>
     </div>
@@ -173,7 +179,7 @@ export default {
 }
 
 .product h2 {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .p-field {
