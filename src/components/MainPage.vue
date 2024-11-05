@@ -137,20 +137,35 @@
     <p>Result:</p>
     <p :class="{ 'animate-result': animate }">{{ result }}</p>
   </div>
+
+  <div class="contact-container flex flex-row justify-content-end">
+    <a
+      href="https://github.com/Kuasawan-Murbawan/mana-lagi-berbaloi-web"
+      target="_blank"
+      rel="noopner noreferrer"
+    >
+      <Image
+        class="github-icon flex m-4"
+        src="/github_icon.png"
+        alt="github acount"
+        width="50"
+      />
+    </a>
+  </div>
 </template>
 
 <script>
 import InputNumber from "primevue/inputnumber";
 import Button from "primevue/button";
 import Select from "primevue/select";
-import AutoComplete from "primevue/autocomplete";
+import Image from "primevue/image";
 
 export default {
   components: {
     InputNumber,
     Button,
     Select,
-    AutoComplete,
+    Image,
   },
   data() {
     return {
@@ -257,7 +272,6 @@ export default {
 
 .button-container {
   text-align: center;
-  margin-top: 20px;
   color: #000;
   border-width: 2px;
 }
@@ -274,6 +288,15 @@ export default {
   transition: transform 1s, opacity 1s;
   transform: scale(1.1);
   opacity: 0.5;
+}
+
+.github-icon {
+  opacity: 0.3;
+  transition: opacity 0.5s;
+}
+
+.github-icon:hover {
+  opacity: 1;
 }
 </style>
 
