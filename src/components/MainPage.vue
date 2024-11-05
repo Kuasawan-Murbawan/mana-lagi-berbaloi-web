@@ -13,23 +13,50 @@
           v-model="quantity1val"
           inputId="quantity1"
           fluid
+          :min="1"
+          class="border-1 border-round-sm pl-2 py-1"
         ></InputNumber>
       </div>
       <div class="p-field">
-        <label for="volume1">Volume</label>
-        <InputNumber v-model="volume1val" id="volume1" fluid></InputNumber>
+        <label for="volume1">Volume </label>
+        (
+        <Select
+          id="measurement-container"
+          v-model="selected_measurement"
+          :options="measurements"
+          option-label="label"
+          option-value="value"
+          placeholder="ml"
+          class=""
+        ></Select>
+        )
+        <InputNumber
+          v-model="volume1val"
+          id="volume1"
+          fluid
+          :min="1"
+          :maxFractionDigits="2"
+          class="border-1 border-round-sm pl-2 py-1"
+        ></InputNumber>
       </div>
       <div class="p-field">
-        <label for="price1">Price</label>
-        <InputNumber v-model="price1val" id="price1" fluid></InputNumber>
+        <label for="price1">Price (RM)</label>
+        <InputNumber
+          v-model="price1val"
+          id="price1"
+          fluid
+          :min="0"
+          :maxFractionDigits="2"
+          class="border-1 border-round-sm pl-2 py-1"
+        ></InputNumber>
       </div>
       <div class="p-field">
-        <label for="value1">Value</label>
+        <label for="value1">Value (RM/{{ selected_measurement }})</label>
         <InputNumber
           v-model="value1val"
           id="value1"
           disabled
-          class="border-1 pl-2 border-round-sm py-1"
+          class="border-1 pl-2 border-round-sm py-1 value-container"
           fluid
         ></InputNumber>
       </div>
@@ -41,24 +68,55 @@
       </div>
       <div class="p-field">
         <label for="quantity2">Quantity</label>
-        <InputNumber id="quantity2" v-model="quantity2val" fluid />
+        <InputNumber
+          id="quantity2"
+          v-model="quantity2val"
+          fluid
+          :min="1"
+          class="border-1 border-round-sm pl-2 py-1"
+        />
       </div>
       <div class="p-field">
         <label for="volume2">Volume</label>
-        <InputNumber v-model="volume2val" id="volume2" fluid></InputNumber>
+        (
+        <Select
+          id="measurement-container"
+          v-model="selected_measurement"
+          :options="measurements"
+          option-label="label"
+          option-value="value"
+          placeholder="ml"
+          class=""
+        ></Select>
+        )
+        <InputNumber
+          v-model="volume2val"
+          id="volume2"
+          fluid
+          :min="1"
+          :maxFractionDigits="2"
+          class="border-1 border-round-sm pl-2 py-1"
+        ></InputNumber>
       </div>
       <div class="p-field">
-        <label for="price2">Price</label>
-        <InputNumber v-model="price2val" id="price2" fluid></InputNumber>
+        <label for="price2">Price (RM)</label>
+        <InputNumber
+          v-model="price2val"
+          id="price2"
+          fluid
+          :maxFractionDigits="2"
+          :min="0"
+          class="border-1 border-round-sm pl-2 py-1"
+        ></InputNumber>
       </div>
       <div class="p-field">
-        <label for="value1">Value</label>
+        <label for="value1">Value (RM/{{ selected_measurement }})</label>
         <InputNumber
           v-model="value2val"
           id="value2"
           disabled
           fluid
-          class="border-1 border-round-sm pl-2 py-1"
+          class="value-container border-1 border-round-sm pl-2 py-1"
         ></InputNumber>
       </div>
     </div>
@@ -84,11 +142,15 @@
 <script>
 import InputNumber from "primevue/inputnumber";
 import Button from "primevue/button";
+import Select from "primevue/select";
+import AutoComplete from "primevue/autocomplete";
 
 export default {
   components: {
     InputNumber,
     Button,
+    Select,
+    AutoComplete,
   },
   data() {
     return {
@@ -102,6 +164,13 @@ export default {
       value2val: 0,
       result: "",
       animate: false,
+      selected_measurement: "mL",
+      measurements: [
+        { label: "ml", value: "ml" },
+        { label: "L", value: "L" },
+        { label: "g", value: "g" },
+        { label: "kg", value: "kg" },
+      ],
     };
   },
   methods: {
@@ -113,37 +182,23 @@ export default {
         this.animate = false;
       }, 1000); // Duration of the animation
 
-      if (
-        this.quantity1val <= 0 ||
-        this.volume1val <= 0 ||
-        this.price1val <= 0
-      ) {
-        this.result = "Please fill in all fields with valid values";
-        return;
-      } else {
-        this.value1val = this.price1val / (this.quantity1val * this.volume1val);
-      }
+      this.value1val = this.price1val / (this.quantity1val * this.volume1val);
+      this.value2val = this.price2val / (this.quantity2val * this.volume2val);
 
       if (
-        this.quantity2val <= 0 ||
-        this.volume2val <= 0 ||
-        this.price2val <= 0
+        isNaN(this.value1val) ||
+        isNaN(this.value2val) ||
+        this.price1val == 0 ||
+        this.price2val == 0
       ) {
-        this.result = "Please fill in all fields with valid values";
-        return;
-      } else {
-        this.value2val = this.price2val / (this.quantity2val * this.volume2val);
-      }
-
-      if (isNaN(this.value1val) || isNaN(this.value2val)) {
         this.result = "Please fill in all fields with valid values";
       } else {
         this.result =
           this.value1val === this.value2val
             ? "Both equally berbaloi"
             : this.value1val > this.value2val
-            ? "Product 2 is cheaper"
-            : "Product 1 is cheaper";
+            ? "Product 2 lagi berbaloi"
+            : "Product 1 lagi berbaloi";
       }
     },
     reset() {
@@ -193,6 +248,11 @@ export default {
 .p-field {
   margin-bottom: 20px;
   color: brown;
+  width: 100%;
+}
+
+.value-container {
+  color: gray;
 }
 
 .button-container {
@@ -215,10 +275,21 @@ export default {
   transform: scale(1.1);
   opacity: 0.5;
 }
+</style>
 
-/* @media (max-width: 500px) {
-  .product-container {
-    flex-direction: column;
-  }
-} */
+<style lang="scss">
+.p-select-list-container {
+  color: brown;
+  padding-left: 5px;
+  width: 30px;
+  padding-bottom: 5px;
+  background-color: rgb(225, 223, 223);
+  border-radius: 5px;
+}
+
+#measurement-container > div > svg {
+  height: 10px;
+  width: 10px;
+  margin-left: 2px;
+}
 </style>
