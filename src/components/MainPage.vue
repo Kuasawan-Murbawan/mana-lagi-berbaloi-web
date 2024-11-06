@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p class="title text-5xl font-bold">Mana Lagi Berbaloi?</p>
+    <p class="title text-5xl font-bold">MANA LAGI BERBALOI?</p>
   </div>
   <div class="flex flex-row justify-content-around product-container gap-5">
     <div class="product1Container flex flex-column align-items-start product">
@@ -13,7 +13,7 @@
           v-model="quantity1val"
           inputId="quantity1"
           fluid
-          :min="1"
+          :min="0"
           class="border-1 border-round-sm pl-2 py-1"
         ></InputNumber>
       </div>
@@ -34,7 +34,7 @@
           v-model="volume1val"
           id="volume1"
           fluid
-          :min="1"
+          :min="0"
           :maxFractionDigits="2"
           class="border-1 border-round-sm pl-2 py-1"
         ></InputNumber>
@@ -72,7 +72,7 @@
           id="quantity2"
           v-model="quantity2val"
           fluid
-          :min="1"
+          :min="0"
           class="border-1 border-round-sm pl-2 py-1"
         />
       </div>
@@ -93,7 +93,7 @@
           v-model="volume2val"
           id="volume2"
           fluid
-          :min="1"
+          :min="0"
           :maxFractionDigits="2"
           class="border-1 border-round-sm pl-2 py-1"
         ></InputNumber>
