@@ -13,4 +13,4 @@ Here are some typical scenarios where you might use **Mana Lagi Berbaloi**:
 | Product      | Option A     | Option B     | Better Deal?               |
 | ------------ | ------------ | ------------ | -------------------------- |
 | Milk         | ![milk-1](https://github.com/user-attachments/assets/a3d6fea6-8216-4394-a122-6e233d1dcc96)| ![milk-2](https://github.com/user-attachments/assets/587cadf2-f994-4410-98e4-461a793c265f) | ![milk-calculated-deal](https://github.com/user-attachments/assets/eec41f23-25e6-4b69-b2ce-2164d981dbd3)|
-| Coffee Beans | ![coffee-1](https://github.com/user-attachments/assets/21d8bec2-58dc-4a2d-a354-c6b8de236758)| ![coffee-2](https://github.com/user-attachments/assets/810e614d-d839-4b23-9e2e-59ba27080cdf)| ![coffee-calculated-deal](https://github.com/user-attachments/assets/263ae2f4-11ed-4390-b34a-8a77e060bf09)|
+| Coffee Beans |![coffee-1](https://github.com/user-attachments/assets/18069b80-1106-4605-99a1-27ab081ab577)| ![coffee-2](https://github.com/user-attachments/assets/2e07e29e-f75b-4968-bff7-516a4130ef10) | ![coffee-calculated-deal](https://github.com/user-attachments/assets/263ae2f4-11ed-4390-b34a-8a77e060bf09)|
