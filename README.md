@@ -1,29 +1,16 @@
-# mana-lagi-berbaloi
+# Mana Lagi Berbaloi? 🛒💸
 
-This template should help get you started developing with Vue 3 in Vite.
+A simple app to help you compare deals and find out which option gives you more bang for your buck. Perfect for quick grocery comparisons or for business owners who regularly compare bulk prices!
 
-## Recommended IDE Setup
+## Main Function
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+**Mana Lagi Berbaloi** is designed to help users make quick, informed decisions about which product deals are the best value based on quantity and price. Just input the size and price of each option, and the app calculates which one is more cost-effective.
 
-## Customize configuration
+## 📊 Example Use Cases
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+Here are some typical scenarios where you might use **Mana Lagi Berbaloi**:
 
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
+| Product      | Option A     | Option B     | Better Deal?               |
+| ------------ | ------------ | ------------ | -------------------------- |
+| Milk         | milk-1.png   | milk-2.png   | milk-calculated-deal.png   |
+| Coffee Beans | coffee-1.png | coffee-2.png | coffee-calculated-deal.png |
