@@ -1,6 +1,7 @@
 # Mana Lagi Berbaloi? 🛒💸
+https://mana-lagi-berbaloi.vercel.app/
 
-A simple app to help you compare deals and find out which option gives you more bang for your buck. Perfect for quick grocery comparisons or for business owners who regularly compare bulk prices!
+- A simple app to help you compare deals and find out which option gives you more bang for your buck. Perfect for quick grocery comparisons or for business owners who regularly compare bulk prices!
 
 ## Main Function
 
